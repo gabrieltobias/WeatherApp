@@ -7,6 +7,7 @@ import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.location.FusedLocationProviderClient
 import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
@@ -14,13 +15,14 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
     val CITY: String = "campinas,br"
-    val API: String = "60be6923651424f1efef9e6d5ea73096"
+    val API: String = "API"
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         weatherTask().execute()
     }
+
     inner class weatherTask() : AsyncTask<String,Void,String>(){
         override fun onPreExecute() {
             super.onPreExecute()
@@ -73,6 +75,8 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.wind).text = windSpeed
                 findViewById<TextView>(R.id.pressure).text = pressure
                 findViewById<TextView>(R.id.humidity).text = humidity
+
+
 
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
