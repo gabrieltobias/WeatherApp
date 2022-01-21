@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
+import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -73,6 +74,14 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.wind).text = windSpeed
                 findViewById<TextView>(R.id.pressure).text = pressure
                 findViewById<TextView>(R.id.humidity).text = humidity
+
+                findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
+                findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
+            }
+            catch (e: Exception)
+            {
+                findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
+                findViewById<TextView>(R.id.errortext).visibility = View.VISIBLE
             }
         }
     }
