@@ -7,7 +7,6 @@ import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
@@ -67,8 +66,8 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.updated_at).text = updatedAtText
                 findViewById<TextView>(R.id.status).text = weatherDescription.capitalize()
                 findViewById<TextView>(R.id.temp).text = temp
-                findViewById<TextView>(R.id.temp_min).text = temp_min.toString()
-                findViewById<TextView>(R.id.temp_max).text = temp_max.toString()
+                findViewById<TextView>(R.id.temp_min).text = tempMin
+                findViewById<TextView>(R.id.temp_max).text = tempMax
                 findViewById<TextView>(R.id.sunset).text = SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunset*1000))
                 findViewById<TextView>(R.id.sunrise).text = SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise*1000))
                 findViewById<TextView>(R.id.wind).text = windSpeed
